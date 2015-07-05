@@ -1,8 +1,7 @@
-from ListaEventos import ListaEventos
+from RM import RM
 
-
-lista = ListaEventos()
+lista = RM()
 lista.debugInit()
 lista.setPrioritiesRM()
-lista.printList("origin")
-lista.printList("rm")
+lista.printList()
+lista.executeRM()
