@@ -1,7 +1,14 @@
 from RM import RM
+from analiseTempoResposta import executeATR
 
-lista = RM()
-lista.debugInit()
-lista.setPrioritiesRM()
-lista.printList()
-lista.executeRM()
+rm = RM()
+rm.debugInit()
+rm.setPrioritiesRM()
+rm.printList()
+executeATR(rm.getLista())
+
+
+#RM Things
+#
+#lista.printList()
+#lista.executeRM()
