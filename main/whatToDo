@@ -1,0 +1,30 @@
+Outline of the solution. OK = DONE
+
+--Setup
+
+Initially, we have a list of tasks ordered by the rm priority.
+
+We need a job buffer that is ordered by rm priority.
+
+There is no need to execute the priority ordering more then once, since this is RM.
+
+The task buffer receives all tasks that are willing to execute (at time = 0, all of then)
+
+An global variable time, will start at 0 and be incremented by each cicle of the execution while.
+
+
+
+--Loop
+
+Each cicle will increase by one the execution time of the highest priority job in the job buffer, and time by 1.
+
+Handling preemption:
+Each cycle must check if there is a new job to be added to the list of jobs, if so, add to jobList.
+This check can be done by checking at every multiplier of all periods (time%period = 0). When adding to the jobPool,
+if the job is already there, the schedulling failed, miserably.
+
+When an event ends executting, pop it from jobList.
+
+Execute for time = MMC(t1, t2 ... tn)
+
+

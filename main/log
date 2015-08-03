@@ -1,9 +1,0 @@
-This file describes how we should do this.
-
--We have a list of events ordered by RM priority. But the execution is the problem.
-
--We need an eventList, but also an Action list.
-    Possible Actions: Receive Event, Release Event
-
--Every next Event execute next Action in the current Event and set next Event and Action. How? Pretty hard. Probably
-Wall of Code
