@@ -1,3 +1,4 @@
+# coding=UTF-8
 import math
 
 result = 0
@@ -41,7 +42,7 @@ def executeATR(listaEventos):
         print(result)
 
         if result > e.periodo:
-            print("Tempo de resposta passou o periodo, nao e possivel executar o conjunto de tarefas fornecido.")
+            print("Tempo de resposta passou o periodo, não e possivel executar o conjunto de tarefas fornecido.")
             return -1
 
         while len(hplist) > 0:
