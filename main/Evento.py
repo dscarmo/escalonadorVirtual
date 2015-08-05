@@ -17,11 +17,13 @@ class Evento:
                                                                                      self.prioridadeRm,
                                                                                      self.id))
 
-    def execute(self, time):
-        self.executado += time
-        print("Evento de prioridade {0}  executando {1} " .format(self.prioridadeRm, time))
+    def execute(self):
+        self.executado += 1
+        print("Evento de prioridade {0}  executando " .format(self.prioridadeRm))
+        print("Tempo executado: {0} ".format(self.executado))
         if self.executado == self.custo:
             self.executado = 0
+            print("Terminou de executar.")
             return 1
         elif self.executado > self.custo:
             print("Erro: evento alocado por mais tempo que o necessario")
