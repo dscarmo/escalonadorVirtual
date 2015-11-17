@@ -1,5 +1,6 @@
 from Evento import Evento
 
+
 class EDF:
 
     def __init__(self):
@@ -28,7 +29,7 @@ class EDF:
                 self.clearList(self.lTarefas)
                 self.inicializar()
         self.printList(self.lTarefas)
-        self.calcProc(self.lTarefas)
+
     def printList(self, lista):
         for e in lista:
             e.oi()
@@ -46,4 +47,37 @@ class EDF:
             print("Sistema Escalonavel")
         else:
             print("Sistema nao escalonavel")
-            exit()
+
+    def lista_vazia(self,lista):
+        if  not self.lTarefas:
+            print("Lista Vazia. Adicione Elementos na Lista")
+            return True
+        else:
+            return False
+
+    def call_calcProc(self):
+        if not self.lista_vazia(self.lTarefas):
+            self.calcProc(self.lTarefas)
+
+
+    def org_list(self,lista):
+        lista.sort(key=lambda evento: evento.periodo)
+        self.printList(self.lTarefas)
+
+    def mmc(self,num1, num2):
+        a = num1
+        b = num2
+        while b !=0:
+            temp=b
+            b=a % b
+            a=temp
+        return  (num1 * num2) / a
+
+
+    def calc_execTime(self,lista):
+        time=1
+        for e in lista:
+            a=e.getPeriodo()
+            time=self.mmc(a,time)
+        return time
+

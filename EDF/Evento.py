@@ -3,7 +3,7 @@ class Evento:
         self.id = id
         self.custo = c
         self.periodo = t
-        self.folga = 0
+        self.nextExec = 0
         self.executado = 0
 
     def oi(self):
@@ -11,3 +11,16 @@ class Evento:
 
     def calc(self):
         return float(self.custo)/float(self.periodo)
+
+    def getPeriodo(self):
+        return int(self.periodo)
+
+    def getDeadline(self):
+        return float(self.periodo) + float(self.nextExec)
+
+    def stepEDF(self,step):
+        self.executado += step
+        if self.executado == self.custo:
+            self.executado=0
+            self.nextExec += self.periodo
+            print("Tarefa ",self.id," terminou de executar")
