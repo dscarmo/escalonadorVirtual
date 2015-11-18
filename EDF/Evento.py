@@ -13,14 +13,18 @@ class Evento:
         return float(self.custo)/float(self.periodo)
 
     def getPeriodo(self):
-        return int(self.periodo)
+        return float(self.periodo)
+
+    def getNextExec(self):
+        return float(self.nextExec)
 
     def getDeadline(self):
         return float(self.periodo) + float(self.nextExec)
 
     def stepEDF(self,step):
         self.executado += step
-        if self.executado == self.custo:
+        print("ID: {0}, Tempo Executado: {1}, Custo {3} ,Deadline: {2}" .format(self.id, self.executado, self.getDeadline(),self.custo))
+        if self.executado == float(self.custo):
             self.executado=0
-            self.nextExec += self.periodo
+            self.nextExec += float(self.periodo)
             print("Tarefa ",self.id," terminou de executar")
